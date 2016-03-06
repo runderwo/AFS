@@ -139,7 +139,7 @@ my $version = `./a.out` || die "\nCould not run test code to retrieve the versio
 unlink 'a.out', 'fotav.c';
 
 my ($v_string, $v_numb) = ('', '');
-if ($version =~ />(\S+?)\s+(\S+)</) {
+if ($version =~ />(\S+?)\s+([\d\.]+)/) {
     $v_string = $1;
     $v_numb   = version->new($2);
 }
@@ -186,6 +186,7 @@ elsif ($v_numb =~ /1.2/)   { $m_version = 'OpenAFS 1.2'; }
 elsif ($v_numb =~ /1.3/)   { $m_version = 'OpenAFS 1.3'; }
 elsif ($v_numb =~ /1.4/)   { $m_version = 'OpenAFS 1.4'; }
 elsif ($v_numb =~ /1.5/)   { $m_version = 'OpenAFS 1.5'; }
+elsif ($v_numb =~ /1.6/)   { $m_version = 'OpenAFS 1.6'; }
 elsif ($v_numb =~ /devel/) { $m_version = 'OpenAFS devel'; }
 
 if ($m_version eq '') {
